@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <style>
+    	{
+  			box-sizing: border-box;
+		}
+    	.autocomplete {
+  			position: relative;
+  			width: 800px;
+  			display: inline-block;
+		}
+    </style>
+	
+    <title>Home</title>
+	
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css">
+	
+	<!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+	
+	
+	<!-- Custom Fonts -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"  type="text/css">
+    <link rel="stylesheet" href="fonts/font-slider.css" type="text/css">
+	
+	<!-- jQuery and Modernizr-->
+	<script src="js/jquery-2.1.1.js"></script>
+	
+	<!-- Core JavaScript Files -->  	 
+    <script src="js/bootstrap.min.js"></script>
+	
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+	<!--Top-->
+	<nav id="top">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-6">
+					<div id="logo"><img src="images/logo.jpg" width="80" /></div>
+				</div>
+				<div class="col-xs-6">
+					<ul class="top-link">
+						<li><a href="account.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+						<li><a href="contact.html"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</nav>
+	<!--Header-->
+	<header class="container">
+		<div class="row">
+			<div class="col-xs-2">
+				<h5>MiniClip</h5>
+			</div>
+			<div class="col-md-10">
+				<form autocomplete="off" class="form-search">  
+					<div class="autocomplete">
+						<input style="width: 800px" id="gameInput" type="text" name="gameInput" placeholder="Search games">
+					</div> 
+					<button type="submit" class="btn"><span class="glyphicon glyphicon-search"></span></button>  
+				</form>
+			</div>
+			<!--div class="col-md-4">
+				<div id="cart"><a class="btn btn-1" href="cart.html"><span class="glyphicon glyphicon-shopping-cart"></span>CART : 0 ITEM</a></div>
+			</div-->
+		</div>
+	</header>
+	<!--//////////////////////////////////////////////////-->
+	<!--///////////////////Category Page//////////////////-->
+	<!--//////////////////////////////////////////////////-->
+	<div id="page-content" class="single-page">
+		<div class="container">
+			<!--div class="row">
+				<div class="col-lg-12">
+					<ul class="breadcrumb">
+						<li><a href="index.html">Home</a></li>
+						<li><a href="category.html">Category : Mobile</a></li>
+					</ul>
+				</div>
+			</div-->
+			<div class="row">
+			<div id="sidebar" class="col-md-2">
+					<div class="widget wid-categories">
+						<div class="heading"><h4>Friends Online</h4></div>
+						<div class="content">
+							<ul>
+								<li><a href="#">Tommy</a></li>
+								<li><a href="#">John</a></li>
+								<li><a href="#">Raine</a></li>
+								<li><a href="#">Sally</a></li>
+							</ul>
+						</div>
+					</div>
+			</div>
+				<div id="main-content" class="col-md-8">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="heading"><h2>POPULAR GAMES</h2></div>
+							<div class="products">
+								<!--
+									Make sure popular game data is loaded here and then populate popular games portion of page according
+									to game popularities.
+								-->
+								<%
+								if (pop_game_data) {
+									var popGameCards = '';
+									pop_game_data.forEach(function(item) {
+										popGameCards += '<div class="col-lg-4 col-md-4 col-xs-12">'
+										popGameCards += '<div class="product">'
+										popGameCards += '<div class="image"><a href="product.html"><img src="images/download.jpeg" /></a></div>'
+										popGameCards += '<div class="caption">'
+										popGameCards += '<div class="name"><h3><a href="product.html">' + item.name + '</a></h3></div></div></div></div>'
+									}); %>
+									<%- popGameCards %>
+								<% } %>
+								<!--
+								<div class="col-lg-4 col-md-4 col-xs-12">
+									<div class="product">
+										<div class="image"><a href="product.html"><img src="images/download.jpeg" /></a></div>
+										<div class="caption">
+											<div class="name"><h3><a href="product.html">Aliquam erat volutpat</a></h3></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-4 col-xs-12">
+									<div class="product">
+										<div class="image"><a href="product.html"><img src="images/download.jpeg" /></a></div>
+										
+										<div class="caption">
+											<div class="name"><h3><a href="product.html">Aliquam erat volutpat</a></h3></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-4 col-xs-12">
+									<div class="product">
+										<div class="image"><a href="product.html"><img src="images/download.jpeg" /></a></div>
+										<div class="caption">
+											<div class="name"><h3><a href="product.html">Aliquam erat volutpat</a></h3></div>
+										</div>
+									</div>
+								</div>
+								-->
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-12">
+							<div class="heading"><h2>ALL GAMES</h2></div>
+							  
+
+							  	<!--
+							  		Make sure all game data is loaded here and then populate all game cards below. Create a new row after every
+							  		3 game cards.
+							  	-->
+
+							  	<%
+							  	if (all_game_data) {
+							  		var allGameCards = '<div class="row"><div class="products">';
+							  		all_game_data.forEach(function(item) {
+							  			allGameCards += '<div class="col-lg-4 col-md-4 col-xs-12"><div class="product">';
+							  			allGameCards += '<div class="image"><a href="product.html"><img src="images/download.jpeg" /></a></div>';
+							  			allGameCards += '<div class="caption">';
+							  			allGameCards += '<div class="name"><h3><a href="product.html">' + item.name + '</a></h3></div></div></div></div>';
+							  			if (item.id % 3 == 0 && item.id != 1) {
+							  				allGameCards += '</div></div><div class="row"><div class="products">';
+							  			}
+							  		});
+							  		allGameCards += '</div></div>'; %>
+							  		<%- allGameCards %>
+							  	<% } %>
+							  	
+							  	<!--
+							  	<div class="col-lg-4 col-md-4 col-xs-12">
+									<div class="product">
+										<div class="image"><a href="product.html"><img src="images/download.jpeg" /></a></div>
+										<div class="caption">
+											<div class="name"><h3><a href="product.html">Aliquam erat volutpat</a></h3></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-4 col-xs-12">
+									<div class="product">
+										<div class="image"><a href="product.html"><img src="images/download.jpeg" /></a></div>
+										<div class="caption">
+											<div class="name"><h3><a href="product.html">Aliquam erat volutpat</a></h3></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-4 col-xs-12">
+									<div class="product">
+										<div class="image"><a href="product.html"><img src="images/download.jpeg" /></a></div>
+										<div class="caption">
+											<div class="name"><h3><a href="product.html">Aliquam erat volutpat</a></h3></div>
+										</div>
+									</div>
+								</div>
+								-->
+							 
+
+								<!--
+							  <div class="row">
+							  	<div class="products">
+							  	<div class="col-lg-4 col-md-4 col-xs-12">
+									<div class="product">
+										<div class="image"><a href="product.html"><img src="images/download.jpeg" /></a></div>
+										<div class="caption">
+											<div class="name"><h3><a href="product.html">Aliquam erat volutpat</a></h3></div>
+										</div>
+									</div>
+								</div>
+                                <div class="col-lg-4 col-md-4 col-xs-12">
+									<div class="product">
+										<div class="image"><a href="product.html"><img src="images/download.jpeg" /></a></div>
+										<div class="caption">
+											<div class="name"><h3><a href="product.html">Aliquam erat volutpat</a></h3></div>
+										</div>
+									</div>
+								</div>
+								<div class="col-lg-4 col-md-4 col-xs-12">
+									<div class="product">
+										<div class="image"><a href="product.html"><img src="images/download.jpeg" /></a></div>
+										<div class="caption">
+											<div class="name"><h3><a href="product.html">Aliquam erat volutpat</a></h3></div>
+										</div>
+									</div>
+								</div>
+							  </div>
+
+						    </div>
+						-->
+						
+
+
+						</div>	  
+						</div>
+					</div>
+					<div class="row text-center">
+						<ul class="pagination">
+						  <li class="active"><a href="#">1</a></li>
+						  <li><a href="#">2</a></li>
+						  <li><a href="#">3</a></li>
+						  <li><a href="#">4</a></li>
+						  <li><a href="#">5</a></li>
+						</ul>
+					</div>
+				</div>
+				<div id="sidebar" class="col-md-2">
+					<div class="widget wid-product">
+						<div class="heading"><h4>LATEST</h4></div>
+						<div class="content">
+							<div class="product">
+								<a href="#"><img src="images/galaxy-note.jpg" /></a>
+								<div class="wrapper">
+									<h5><a href="#">Samsung Galaxy Tab</a></h5>
+									<div class="price">$122</div>
+									<div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
+								</div>
+							</div>
+							<div class="product">
+								<a href="#"><img src="images/galaxy-s4.jpg" /></a>
+								<div class="wrapper">
+									<h5><a href="#">Samsung Galaxy Tab</a></h5>
+									<div class="price">$122</div>
+									<div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
+								</div>
+							</div>
+							<div class="product">
+								<a href="#"><img src="images/Z1.png" /></a>
+								<div class="wrapper">
+									<h5><a href="#">Samsung Galaxy Tab</a></h5>
+									<div class="price">$122</div>
+									<div class="rating"><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star"></span><span class="glyphicon glyphicon-star-empty"></span></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>	
+	<footer>
+		<div class="container">
+			<div class="wrap-footer">
+				<div class="row">
+					<div class="col-md-3 col-footer footer-1">
+						<img src="images/logo.jpg" />
+						<p>Copy right @CU_Boulder</p>
+					</div>
+					<div class="col-md-3 col-footer footer-2">
+						<div class="heading"><h4>About us</h4></div>
+						<ul>
+							<li><a href="#">About Us</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 col-footer footer-3">
+						<div class="heading"><h4>Submit Game</h4></div>
+						<ul>
+							<li><a href="#">Submit Games</a></li>
+						</ul>
+					</div>
+					<div class="col-md-3 col-footer footer-4">
+						<div class="heading"><h4>Contact Us</h4></div>
+						<ul>
+							<li><span class="glyphicon glyphicon-home"></span>Colorado, United States</li>
+							<li><span class="glyphicon glyphicon-earphone"></span>+91 999999999999</li>
+							<li><span class="glyphicon glyphicon-envelope"></span>infor@yoursite.com</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</body>
+</html>
