@@ -30,8 +30,28 @@ app.set('view engine', 'ejs');
 app.use(express.static(__dirname + '/'));
 
 app.get('/', function(req, res) {
-	res.render('category',{ 
-		my_title:"Home"
+	var all_games = "select * from gamelist";
+	var pop_games = "select * from gamelist order by (dislikes-likes);";
+	gamedb.task('get-everything', task => {
+		return task.batch([
+			task.any(all_games),
+			task.any(pop_games)
+		]);
+	})
+	.then(info => {
+		res.render('category', {
+			my_title: "Home",
+			all_game_data: info[0],
+			pop_game_data: info[1].slice(0,3)
+		})
+
+	})
+	.catch(error => {
+		res.render('category', {
+			my_title: "Home",
+			all_game_data: '',
+			pop_game_data: ''
+		})
 	});
 });
 
