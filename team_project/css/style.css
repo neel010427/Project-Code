@@ -4,6 +4,7 @@
 @import url(http://fonts.googleapis.com/css?family=Roboto:400,300,700,900);
 @import url(http://fonts.googleapis.com/css?family=Ek+Mukta:400,600,700);
 
+
 /* ---------------------------------------------------------------------------- */
 /* -------------------------------Autocomplete Styling------------------------- */
 /* ---------------------------------------------------------------------------- */
@@ -118,6 +119,59 @@ hr.line { margin: 15px auto; padding: 0; max-width: 90px;border: 0; border-top: 
 /* ---------------------------------------------------------------------------- */
 /* -----------------------------------Header----------------------------------- */
 /* ---------------------------------------------------------------------------- */
+
+#top ul {
+  float: right;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  background-color: #333;
+}
+
+#top li {
+  float: left;
+}
+
+#top li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+#top li a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+#top li.dropdown {
+  display: inline-block;
+}
+
+#top .dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+#top .dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+#top .dropdown-content a:hover {background-color: #f1f1f1}
+
+#top .dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/*
 #top {background: #F6F6F6;padding: 7px 0;}
 #top .language{}
 #top .currency {}
@@ -127,6 +181,7 @@ hr.line { margin: 15px auto; padding: 0; max-width: 90px;border: 0; border-top: 
 @media(max-width:767px) {
 	#top ul.top-link li{float: none;border: none;}
 }
+*/
 
 header {padding: 50px 0; }
 header #logo{margin: 5px 0 15px;}

@@ -17,6 +17,7 @@
   			display: inline-block;
 		}
     </style>
+
 	
     <title>Home</title>
 	
@@ -55,9 +56,14 @@
 					<div id="logo"><img src="images/logo.jpg" width="80" /></div>
 				</div>
 				<div class="col-xs-6">
-					<ul class="top-link">
-						<li><a href="account.html"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-						<li><a href="contact.html"><span class="glyphicon glyphicon-envelope"></span> Contact</a></li>
+					<ul>
+  						<li class="dropdown">
+    						<a href="javascript:void(0)" class="dropbtn">Welcome <%- current_user.username %></a>
+    						<div class="dropdown-content">
+      							<a href="#">Sign-in</a>
+      							<a href="account">Sign-up</a>
+    						</div>
+  						</li>
 					</ul>
 				</div>
 			</div>
@@ -186,7 +192,7 @@ function autocomplete(inp, arr) {
   });
 }
 
-/*An array containing all the country names in the world:*/
+/*An array containing all the names of games stored in our database:*/
 <%
 var games = '[';
 all_game_data.forEach(function(item) {
@@ -195,7 +201,7 @@ all_game_data.forEach(function(item) {
 games += ']';
 %>
 
-/*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
+/*initiate the autocomplete function on the "gameInput" element, and pass along the games array as possible autocomplete values:*/
 autocomplete(document.getElementById("gameInput"), <%- games %>);
 </script>
 			<!--div class="col-md-4">
@@ -222,10 +228,27 @@ autocomplete(document.getElementById("gameInput"), <%- games %>);
 						<div class="heading"><h4>Friends Online</h4></div>
 						<div class="content">
 							<ul>
+								<%
+									var friendsList = "";
+									if (current_user.username == 'Guest') {
+										friendsList += "<li>Login to see your friends online</li>";
+									}
+									else if(current_user_friends.length == 0) {
+										friendsList += "<li>You haven't made any friends yet</li>";
+									}
+									else {
+										for (i=0; i<current_user_friends.length; i++) {
+											friendsList += "<li>" + current_user_friends[i].username + "</li>";
+										}
+									} %>
+									<%- friendsList %>
+
+								<!--
 								<li><a href="#">Tommy</a></li>
 								<li><a href="#">John</a></li>
 								<li><a href="#">Raine</a></li>
 								<li><a href="#">Sally</a></li>
+								-->
 							</ul>
 						</div>
 					</div>
