@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <form><title id="title" name="game_id">Frogger</title></form>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css"  type="text/css">
+
+	<!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+
+	<!-- Custom Fonts -->
+    <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css"  type="text/css">
+    <link rel="stylesheet" href="fonts/font-slider.css" type="text/css">
+
+	<!-- jQuery and Modernizr-->
+	<script src="js/jquery-2.1.1.js"></script>
+
+	<!-- Core JavaScript Files -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script src="js/photo-gallery.js"></script>
+
+    <script type="text/javascript" src="../js/index.js"></script>
+
+    <style>
+    @font-face {
+        font-family: 'Arcade Classic';
+        src: url('fonts/arcadeclassic.eot');
+        src: url('fonts/arcadeclassic.eot?#iefix') format('embedded-opentype'),
+             url('fonts/arcadeclassic.woff') format('woff'),
+             url('fonts/arcadeclassic.ttf') format('truetype'),
+             url('fonts/arcadeclassic.svg#arcadeclassic') format('svg');
+        font-weight: normal;
+        font-style: normal;
+    }
+    .canvas {
+        position: absolute;
+        top: 0;
+        left: 15;
+        border: 2px solid #000;
+        width: 480px;
+        height: 640px;
+    }
+    </style>
+	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+	<!--Top-->
+
+	<!--Header-->
+	<header class="container">
+		<div class="row">
+			<div class="col-md-4">
+				<div id="logo"><img src="images/nglogo.png" /></div>
+			</div>
+
+		</div>
+	</header>
+	<!--Navigation-->
+    <nav id="menu" class="navbar" style="color: white; font-size: 30px; text-align: center;">
+      Frogger
+	</nav>
+	<!--//////////////////////////////////////////////////-->
+	<!--///////////////////Product Page///////////////////-->
+	<!--//////////////////////////////////////////////////-->
+	<div id="page-content" class="single-page">
+		<div class="container">
+			<div class="row">
+				<div id="main-content" class="col-md-6">
+          <div style="width:450px;height:600px;border:1px solid #000;">Blank</div>
+          <canvas id="background-canvas" class="canvas" width="960" height="1280"></canvas>
+          <canvas id="canvas" class="   canvas" width="960" height="1280"></canvas>
+          <script src="js/frogger.js"></script>
+					<div class="product-desc">
+						<ul class="nav nav-tabs">
+							<li class="active"><a href="#description">Comments</a></li>
+							<li><a href="#review">Review</a></li>
+						</ul>
+						<div class="tab-content">
+							<div id="description" class="tab-pane fade in active">
+							</div>
+							<div id="review" class="tab-pane fade">
+
+							  <div class="review-form">
+                   <h6>Did you like the game? </h6>
+                   <!--the following lines are for the like and dislike buttons-->
+                   <form action="/tictactoe" method="get">
+                        <a href="#" onclick="updateLikes()">  <i class="fa fa-thumbs-up" aria-hidden="true" style="font-size:36px;" id="thumbs-up" disabled></i></a>
+                        <span id="likes"><%- likes %></span>
+
+
+                        <a href="#" onclick="updateDislikes()"><i class="fa fa-thumbs-down" id="thumbs-down" style="font-size:36px; margin-left: 40px;"></i></a>
+                        <span id="dislikes" name="dislikes"><%- dislikes %></span>
+                    </form method="post" action="/updatecomments">
+
+
+								<h6 style="margin-top: 60px;">Write a review</h6>
+								<form name="form1" id="ff">
+
+									<label>
+									<span>Your message here:</span>
+									<textarea name="message" id="message"></textarea>
+									</label>
+									<div class="text-right">
+										<input class="btn btn-default" type="reset" name="reset" value="Reset">
+										<a href="#" onclick="changeReview()"><input class="btn btn-default" type="submit" name="Submit" value="Submit"></a>
+									</div>
+								</form>
+							  </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="sidebar" class="col-md-4">
+					<div class="widget wid-categories">
+						<div class="heading"><h4>Game Description</h4></div>
+						<div class="content">
+
+<span id="game-description">
+In the game Frogger, your goal is to fill in the 5 openings at the top with frogs.
+
+Control the from using the up, down, left, and right keys on the keyboard.
+
+If you get hit my a vehicle, drown, or stand too long on a sinking lily pad, you will lose a life.
+  <br>
+ </span>
+ <a href="#">  <i class="fa fa-thumbs-up disabled" id="thumbs-up" aria-hidden="true" style="font-size:36px; color: gray;
+ 						cursor:not-allowed;"></i></a>
+                        <strong id="likes">10</strong>
+                        <a href="#" style=""><i class="fa fa-thumbs-down" style="font-size:36px; margin-left: 40px; color: gray; cursor:not-allowed;"></i></a>
+                        <strong id="dislikes" >2</strong>
+
+						</div>
+					</div>
+
+
+				</div>
+			</div>
+		</div>
+	</div>
+  <footer>
+		<div class="container">
+			<div class="wrap-footer">
+				<div class="row">
+					<div class="col-md-3 col-footer footer-1">
+						<img src="images/nglogo.png" />
+					</div>
+					<div class="col-md-3 col-footer footer-2">
+            <button type="button" class="btn btn-secondary btn-lg">About Us</button>
+
+					</div>
+					<div class="col-md-3 col-footer footer-3">
+            <button type="button" class="btn btn-secondary btn-lg">Contact Us</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- IMG-thumb -->
+	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-body">
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+	<script>
+	$(document).ready(function(){
+		$(".nav-tabs a").click(function(){
+			$(this).tab('show');
+		});
+		$('.nav-tabs a').on('shown.bs.tab', function(event){
+			var x = $(event.target).text();         // active tab
+			var y = $(event.relatedTarget).text();  // previous tab
+			$(".act span").text(x);
+			$(".prev span").text(y);
+		});
+	});
+	</script>
+</body>
+</html>
